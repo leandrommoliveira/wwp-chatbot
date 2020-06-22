@@ -4,6 +4,12 @@ import json
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def nao_entre_em_panico():
+    if request.headers.get('Authorization') == '42':
+        return jsonify({"42": "a resposta para a vida, o universo e tudo mais"})
+    return jsonify({"message": "Não entre em pânico!"})
+
 @app.route('/', methods=['POST'])
 def home():
     if request.method == 'POST':
@@ -11,4 +17,5 @@ def home():
         return bot.processing()
 
 if(__name__) == '__main__':
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
