@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from wabot import WABot
 import json
