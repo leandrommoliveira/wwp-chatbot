@@ -1,17 +1,11 @@
+from chatterbot.trainers import ListTrainer
 from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
 
 class Robot():
     def __init__(self):
-        self.bot = ChatBot(
-            'C3PO',
-            storage_adapter='chatterbot.storage.SQLStorageAdapter',
-            database_uri='sqlite:///database.sqlite3'
-        )
-
-        self.trainner = ChatterBotCorpusTrainer(self.bot)
-        self.trainner.train("./custom.yml")
-
+        self.bot = ChatBot('TW Chat Bot')
+        self.conversa = ListTrainer(self.bot)
+        self.conversa.train(['Oie', 'oi td bem?' ,'oi', 'oi', 'Oi', 'Olá', 'Tudo bem?', 'Tudo ótimo', 'td bem?', 'Sim e vc?', 'tudo sim e vc?', 'bom tmb'])
 
     def getAnwser(self, text):
         try:
