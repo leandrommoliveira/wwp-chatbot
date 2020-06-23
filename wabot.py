@@ -1,6 +1,7 @@
 import json
 import requests
 import datetime
+from bot import Robot
 
 class WABot():    
     def __init__(self, json):
@@ -8,6 +9,7 @@ class WABot():
         self.dict_messages = json['messages']
         self.APIUrl = 'https://eu144.chat-api.com/instance141984/'
         self.token = 'ibr1rn0epebwdnnt'
+        self.bot = Robot()
    
     def send_requests(self, method, data):
         url = f"{self.APIUrl}{method}?token={self.token}"
@@ -132,11 +134,13 @@ Commands:
                 else: return 'NoCommand'
 
     def responses(self, text):
-        if text == 'oi' or text == 'Oi' or text == 'Oie' or 'Olá' or 'Ola':
+        if text == 'oi' or text == 'Oi' or text == 'Oie' or text == 'Olá' or text == 'Ola':
             return 'oi, tudo bem?'
         elif text == 'tudo bem e voce?' or text == 'td bem e vc?' or text == 'td sim e vc?':
             return 'bom tmb!'
         elif text == 'td bem?' or text == 'tudo bem?' or text == 'como voce esta?' or text == 'e ai blz?':
             return 'tudo bem e vc?'
+        elif text == 'bem':
+            return 'que bom!'
         else:
             return '?'
