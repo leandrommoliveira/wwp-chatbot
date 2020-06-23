@@ -14,7 +14,7 @@ def nao_entre_em_panico():
 @app.route('/', methods=['POST'])
 def home():
     if request.method == 'POST':
-        bot = WABot(request.json)
+        bot = WABot(request.json, app.logger)
         return bot.processing()
 
 if(__name__) == '__main__':

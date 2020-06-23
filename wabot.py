@@ -4,11 +4,12 @@ import datetime
 
 
 class WABot():    
-    def __init__(self, json):
+    def __init__(self, json, logger):
         self.json = json
         self.dict_messages = json['messages']
         self.APIUrl = 'https://eu144.chat-api.com/instance141984/'
         self.token = 'ibr1rn0epebwdnnt'
+        self.logger = logger
 
    
     def send_requests(self, method, data):
@@ -39,7 +40,6 @@ Commands:
 7. group - create a group with the bot"""
         return self.send_message(chatID, welcome_string)
 
-    
     def time(self, chatID):
         t = datetime.datetime.now()
         time = t.strftime('%d:%m:%Y')
@@ -99,6 +99,7 @@ Commands:
         if self.dict_messages != []:
             for message in self.dict_messages:
                 text = message['body'].split()
+                self.logger.info('%s', message['senderName'])
                 if not message['fromMe']:
                     id  = message['chatId']
                     if text[0].lower() == 'hi':
