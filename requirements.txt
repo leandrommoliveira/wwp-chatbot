@@ -5,6 +5,3 @@ Jinja2==2.11.2
 MarkupSafe==1.1.1
 Werkzeug==1.0.1
 requests==2.24.0
-chatterbot==1.1.0
-spacy==2.3.0
-https://github.com/explosion/spacy-models/releases/download/en_core_web_md-2.0.0/en_core_web_md-2.0.0.tar.gz#egg=en_core_web_md==2.0.0

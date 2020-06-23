@@ -1,8 +1,6 @@
 import json
 import requests
 import datetime
-from bot import Robot
-
 
 class WABot():    
     def __init__(self, json):
@@ -10,7 +8,6 @@ class WABot():
         self.dict_messages = json['messages']
         self.APIUrl = 'https://eu144.chat-api.com/instance141984/'
         self.token = 'ibr1rn0epebwdnnt'
-        self.bot = Robot()
    
     def send_requests(self, method, data):
         url = f"{self.APIUrl}{method}?token={self.token}"
@@ -101,12 +98,14 @@ Commands:
                 text = message['body'].split()
                 print(message['senderName'])
                 if message['senderName'] == 'Tamara':
-                    answer = self.send_message(message['chatId'], text)
+                    resp = self.responses(text)
+                    answer = self.send_message(message['chatId'], resp)
                     print(answer)
                     return answer
                 
                 if message['senderName'] == 'Mae':
-                    answer = self.send_message(message['chatId'], text)
+                    resp = self.responses(text)
+                    answer = self.send_message(message['chatId'], resp)
                     print(answer)
                     return answer
 
@@ -131,3 +130,13 @@ Commands:
                     else:
                         return self.welcome(id, True)
                 else: return 'NoCommand'
+
+    def responses(self, text):
+        if text == 'oi' or text == 'Oi' or text == 'Oie' or 'Olá' or 'Ola':
+            return 'oi, tudo bem?'
+        elif text == 'tudo bem e voce?' or text == 'td bem e vc?' or text == 'td sim e vc?':
+            return 'bom tmb!'
+        elif text == 'td bem?' or text == 'tudo bem?' or text == 'como voce esta?' or text == 'e ai blz?':
+            return 'tudo bem e vc?'
+        else:
+            return '?'
