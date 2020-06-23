@@ -5,6 +5,7 @@ Jinja2==2.11.2
 MarkupSafe==1.1.1
 Werkzeug==1.0.1
 requests==2.24.0
+PyYAML==3.13
 chatterbot==1.1.0
 chatterbot-corpus==1.2.0
 spacy==2.1
