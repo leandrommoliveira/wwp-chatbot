@@ -97,7 +97,8 @@ Commands:
         if self.dict_messages != []:
             for message in self.dict_messages:
                 text = message['body'].split()
-                print(message['senderName'])
+                if message['senderName'] == 'Tamara':
+                    return self.send_message(message['chatId'], 'Oi')
                 if not message['fromMe']:
                     id  = message['chatId']
                     if text[0].lower() == 'hi':
