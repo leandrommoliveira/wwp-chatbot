@@ -7,7 +7,7 @@ class WABot():
     def __init__(self, json):
         self.json = json
         self.dict_messages = json['messages']
-        self.APIUrl = 'https://eu144.chat-api.com/instance141984/'
+        self.APIUrl = 'https://api.chat-api.com/instance141984/instance141984/'
         self.token = 'ibr1rn0epebwdnnt'
    
     def send_requests(self, method, data):
