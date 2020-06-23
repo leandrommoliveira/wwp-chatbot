@@ -8,7 +8,8 @@ verify_ssl = true
 
 Flask = "*"
 requests = "*"
-
+chatterbot = "*"
+chatterbot-corpus = "*"
 [requires]
 
 python_version = "3.6"

@@ -1,6 +1,7 @@
 import json
 import requests
 import datetime
+from bot import Robot
 
 
 class WABot():    
@@ -9,6 +10,7 @@ class WABot():
         self.dict_messages = json['messages']
         self.APIUrl = 'https://eu144.chat-api.com/instance141984/'
         self.token = 'ibr1rn0epebwdnnt'
+        self.bot = Robot()
    
     def send_requests(self, method, data):
         url = f"{self.APIUrl}{method}?token={self.token}"
@@ -99,7 +101,12 @@ Commands:
                 text = message['body'].split()
                 print(message['senderName'])
                 if message['senderName'] == 'Tamara':
-                    answer = self.send_message(message['chatId'], 'Oi')
+                    answer = self.send_message(message['chatId'], text)
+                    print(answer)
+                    return answer
+                
+                if message['senderName'] == 'Mae':
+                    answer = self.send_message(message['chatId'], text)
                     print(answer)
                     return answer
 
