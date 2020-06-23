@@ -7,3 +7,5 @@ Werkzeug==1.0.1
 requests==2.24.0
 chatterbot==1.1.0
 chatterbot-corpus==1.2.0
+spacy==2.0.18
+https://github.com/explosion/spacy-models/releases/download/en_core_web_md-2.0.0/en_core_web_md-2.0.0.tar.gz#egg=en_core_web_md==2.0.0

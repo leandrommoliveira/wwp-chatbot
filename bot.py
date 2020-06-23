@@ -3,7 +3,11 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 
 class Robot():
     def __init__(self):
-        self.bot = ChatBot('C3PO')
+        self.bot = ChatBot(
+            'C3PO',
+            storage_adapter='chatterbot.storage.SQLStorageAdapter',
+            database_uri='sqlite:///database.sqlite3'
+        )
 
         self.trainner = ChatterBotCorpusTrainer(self.bot)
         self.trainner.train("./custom.yml")
