@@ -103,32 +103,32 @@ Commands:
                     print(answer)
                     return answer
                 
-                if message['senderName'] == 'Mae':
+                elif message['senderName'] == 'Mae':
                     resp = self.responses(text)
                     answer = self.send_message(message['chatId'], resp)
                     print(answer)
                     return answer
 
-                if not message['fromMe']:
-                    id  = message['chatId']
-                    if text[0].lower() == 'hi':
-                        return self.welcome(id)
-                    elif text[0].lower() == 'time':
-                        return self.time(id)
-                    elif text[0].lower() == 'chatid':
-                        return self.show_chat_id(id)
-                    elif text[0].lower() == 'me':
-                        return self.me(id, message['senderName'])
-                    elif text[0].lower() == 'file':
-                        return self.file(id, text[1])
-                    elif text[0].lower() == 'ptt':
-                        return self.ptt(id)
-                    elif text[0].lower() == 'geo':
-                        return self.geo(id)
-                    elif text[0].lower() == 'group':
-                        return self.group(message['author'])
-                    else:
-                        return self.welcome(id, True)
+                # if not message['fromMe']:
+                    # id  = message['chatId']
+                    # if text[0].lower() == 'hi':
+                    #     return self.welcome(id)
+                    # elif text[0].lower() == 'time':
+                    #     return self.time(id)
+                    # elif text[0].lower() == 'chatid':
+                    #     return self.show_chat_id(id)
+                    # elif text[0].lower() == 'me':
+                    #     return self.me(id, message['senderName'])
+                    # elif text[0].lower() == 'file':
+                    #     return self.file(id, text[1])
+                    # elif text[0].lower() == 'ptt':
+                    #     return self.ptt(id)
+                    # elif text[0].lower() == 'geo':
+                    #     return self.geo(id)
+                    # elif text[0].lower() == 'group':
+                    #     return self.group(message['author'])
+                    # else:
+                    #     return self.welcome(id, True)
                 else: return 'NoCommand'
 
     def responses(self, text):
