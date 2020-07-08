@@ -99,48 +99,11 @@ Commands:
             for message in self.dict_messages:
                 text = message['body'].split()
                 print(message['senderName'])
-                if message['senderName'] == 'Tamara':
-                    resp = self.responses(text)
-                    answer = self.send_message(message['chatId'], resp)
-                    print(answer)
-                    return answer
-                
-                elif message['senderName'] == 'Mae':
-                    resp = self.responses(text)
-                    answer = self.send_message(message['chatId'], resp)
-                    print(answer)
-                    return answer
+                #verifica o nome de quem esta enviando a mensagem, a verificação pode ser feita por id tambem
+                if message['senderName'] == 'Teste':
+                    answer = self.bot.getAnwser(text)
+                    response = self.send_message(message['chatId'], answer)
+                    print(response)
+                    return response
 
-                # if not message['fromMe']:
-                    # id  = message['chatId']
-                    # if text[0].lower() == 'hi':
-                    #     return self.welcome(id)
-                    # elif text[0].lower() == 'time':
-                    #     return self.time(id)
-                    # elif text[0].lower() == 'chatid':
-                    #     return self.show_chat_id(id)
-                    # elif text[0].lower() == 'me':
-                    #     return self.me(id, message['senderName'])
-                    # elif text[0].lower() == 'file':
-                    #     return self.file(id, text[1])
-                    # elif text[0].lower() == 'ptt':
-                    #     return self.ptt(id)
-                    # elif text[0].lower() == 'geo':
-                    #     return self.geo(id)
-                    # elif text[0].lower() == 'group':
-                    #     return self.group(message['author'])
-                    # else:
-                    #     return self.welcome(id, True)
                 else: return 'NoCommand'
-
-    def responses(self, text):
-        if text == 'oi' or text == 'Oi' or text == 'Oie' or text == 'Olá' or text == 'Ola':
-            return 'oi, tudo bem?'
-        elif text == 'tudo bem e voce?' or text == 'td bem e vc?' or text == 'td sim e vc?':
-            return 'bom tmb!'
-        elif text == 'td bem?' or text == 'tudo bem?' or text == 'como voce esta?' or text == 'e ai blz?':
-            return 'tudo bem e vc?'
-        elif text == 'bem':
-            return 'que bom!'
-        else:
-            return '?'

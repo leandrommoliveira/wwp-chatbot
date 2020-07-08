@@ -1,4 +1,4 @@
-from chatterbot.trainers import ListTrainer
+from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot import ChatBot
 
 class Robot():
@@ -8,9 +8,9 @@ class Robot():
             storage_adapter='chatterbot.storage.SQLStorageAdapter',
             database_uri='sqlite:///database.sqlite3'
         )
-        
-        self.conversa = ListTrainer(self.bot)
-        self.conversa.train(['Oie', 'oi td bem?' ,'oi', 'oi', 'Oi', 'Olá', 'Tudo bem?', 'Tudo ótimo', 'td bem?', 'Sim e vc?', 'tudo sim e vc?', 'bom tmb'])
+
+        self.conversa = ChatterBotCorpusTrainer(self.bot)
+        self.conversa.train('./custom.yml')
 
     def getAnwser(self, text):
         try:
@@ -21,5 +21,4 @@ class Robot():
             return '?'
 
         except:
-            print("Exception buscando uma resposta")
             return '??'
